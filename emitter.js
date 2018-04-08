@@ -9,7 +9,7 @@ var emitterProto = Emitter.prototype;
 
 // Add events/handlers
 emitterProto.on = function(event, handler) {
-    console.log("Add");
+    
     if(!event) {
         throw new Error('Error: Event mandatory.');
     }
@@ -31,17 +31,15 @@ emitterProto.on = function(event, handler) {
 
     this.events[event].push(handler);
 
-    console.log(this.events);
     return this;
 }
 
 // Remove events/handlers
 emitterProto.off = function(event, handler) {
-    console.log("Remove");
+    
     // if no arguements are sent delete all events.
     if(arguments.length === 0) {
         delete this.events;
-        console.log(this.events);
         return this;
     }
         
@@ -64,7 +62,7 @@ emitterProto.off = function(event, handler) {
              // if only event is given remove all handlers associated with that event.
             this.events[event] = [];
         }
-        // console.log(this.events);
+        
         return this;
     }    
 }
@@ -72,6 +70,22 @@ emitterProto.off = function(event, handler) {
 // Add an event/handler once
 emitterProto.once = function(event, handler) {
     var self = this;
+
+    if(!event) {
+        throw new Error('Error: Event mandatory.');
+    }
+
+    if(this.eventType(event)) {
+        throw new Error('Error: Event can be of type string only.');
+    }
+
+    if(!handler) {
+        throw new Error('Error: Handler mandatory.');
+    }
+
+    if(this.handlerType(handler)) {
+        throw new Error('Error: Handler can be of type function only.');
+    }
 
     function newHandler() {
         self.off(event, newHandler);
@@ -86,7 +100,15 @@ emitterProto.once = function(event, handler) {
 
 // Emit and event/handler
 emitterProto.emit = function(event) {
-    console.log("Emit");
+
+    if(!event) {
+        throw new Error('Error: Event mandatory.');
+    }
+
+    if(this.eventType(event)) {
+        throw new Error('Error: Event can be of type string only.');
+    }
+    
     var argList = [].slice.call(arguments, 1);
     var handlerList = this.events[event];
     
@@ -108,6 +130,7 @@ emitterProto.eventType = function(evt) {
 emitterProto.handlerType= function(handler) {
     return (typeof handler !== 'function');
 }
+
 // Export module
 if(typeof module !== 'undefined') 
     module.exports = new Emitter();
