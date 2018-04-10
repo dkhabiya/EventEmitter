@@ -2,10 +2,14 @@
   "name": "emitter",
   "version": "1.0.0",
   "description": "Simple JS event emitter.",
-  "main": "app.js",
+  "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "author": "D",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.5"
+  }
 }
