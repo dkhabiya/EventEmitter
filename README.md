@@ -11,14 +11,15 @@ A JavaScript event emitter.
 
 This implememtation has the following methods.
 
-* `on`
-    **on(event, handler)**
+* **on**
+
+    `on(event, handler)`
         Adds an event along with a function or handler to be called when the event is fired. It takes the following parameters.
 
-        | Parameter | Type     | Mandatory |
-        |:----------|:---------|:----------|
-        | event     | string   | Yes       |
-        | handler   | function | Yes       |
+        | Parameter | Type | Mandatory |
+        | --- | --- | --- |
+        | event | string | Yes |
+        | handler | function | Yes |
         
         Usage example:
         
@@ -34,14 +35,15 @@ This implememtation has the following methods.
         
         ```
 
-* `off`
-    **off(event, handler)**
+* **off**
+    
+    `off(event, handler)`
         Removes events/handlers. It takes the following parameters 
 
-        | Parameter | Type     | Mandatory |
-        |:----------|:---------|:----------|
-        | event     | string   | No        |
-        | handler   | function | No        |
+        | Parameter | Type | Mandatory |
+        | --- | --- | --- |
+        | event | string | No |
+        | handler | function | No |
         
         Cases:
         * Removes all events and handlers when no parameters are sent.
@@ -65,14 +67,15 @@ This implememtation has the following methods.
         
         ```
         
-* `once`
-    **once(event, handler)**
+* **once**
+    
+    `once(event, handler)`
         Adds an event along with a function or handler to be called when the event is fired. It takes the following parameters.
 
-        | Parameter | Type     | Mandatory |
-        |:----------|:---------|:----------|
-        | event     | string   | Yes       |
-        | handler   | function | Yes       |
+        | Parameter | Type | Mandatory |
+        | --- | --- | --- |
+        | event | string | Yes |
+        | handler | function | Yes |
         
         Usage example:
         
@@ -88,14 +91,15 @@ This implememtation has the following methods.
         
         ```
 
-* `emit`
-    **emit(event, args)**
+* **emit**
+
+    `emit(event, args)`
         Triggers all handlers for the event with the arguments sent. If no arguments are sent the handler is triggered without any parameters.
 
-        | Parameter | Type     | Mandatory |
-        |:----------|:---------|:----------|
-        | event     | string   | Yes       |
-        | args      | *        | No        |
+        | Parameter | Type | Mandatory |
+        | --- | --- | --- |
+        | event | string | Yes |
+        | args | * | No |
         
         Usage example:
         
@@ -109,6 +113,6 @@ This implememtation has the following methods.
         
         e.on('Event', handler);
         e.emit('Event');
-        
+        e.emit('Event', 5, 8);        
         ```
         
