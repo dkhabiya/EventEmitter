@@ -69,28 +69,26 @@ This implememtation has the following methods.
         
 * **once**
     
-    `once(event, handler)`
-        
-        Adds an event along with a function or handler to be called when the event is fired. It takes the following parameters.
+`once(event, handler)`
+Adds an event along with a function or handler to be called when the event is fired. It takes the following parameters.
 
-        | Parameter | Type | Mandatory |
-        | --- | --- | --- |
-        | event | string | Yes |
-        | handler | function | Yes |
+| Parameter | Type | Mandatory |
+| --- | --- | --- |
+| event | string | Yes |
+| handler | function | Yes |
 
-        Usage example:
+Usage example:
         
-        ```js
-        var Emitter = require('./src/emitter.js');
-        var e = new Emitter();
+```js
+var Emitter = require('./src/emitter.js');
+var e = new Emitter();
         
-        var handler = function() {
-                console.log("Hello! This is an example.");
-        }
+var handler = function() {
+        console.log("Hello! This is an example.");
+}
         
-        e.once('Event', handler);
-        
-        ```
+e.once('Event', handler); 
+```
 
 * **emit**
 
